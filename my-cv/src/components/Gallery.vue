@@ -84,7 +84,7 @@ export default  {
           A visual feedback is displayed on the table to help players to perceive what they are doing.`
         },
         {
-          title: 'Carabinophotomaton',
+          title: 'Carabino',
           icon: 'icon-carabino',
           galleryImage: '/static/carabino/1.jpg',
           slideshow: ['/static/carabino/1.jpg', '/static/carabino/1.mp4', '/static/carabino/2.jpg'],
@@ -102,6 +102,7 @@ export default  {
 </script>
 
 <style lang="scss" scoped>
+
 .project-gallery{
   min-width: 768px;
   min-height: 432px;
@@ -122,8 +123,15 @@ ul{
   text-align: center;
 }
 li{
+  cursor: pointer;
   padding-right: 16px;
   width: 15%;
+  padding: 6px 0px 6px 0px;
+  border-radius: 16px;
+}
+
+li:hover{
+  background-color: var( --blue-2);
 }
 .icon-div{
   font-size: 56px;
