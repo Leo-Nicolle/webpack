@@ -1,0 +1,44 @@
+@font-face {
+    font-family: "icons";
+    src: url("./icons.woff?a60ae74e9318e64b557ba18c5c6372c6") format("woff");
+}
+
+i {
+    line-height: 1;
+}
+
+i[class^="icon-"]:before, i[class*=" icon-"]:before {
+    font-family: icons !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-bruit:before {
+    content: "\f101";
+}
+.icon-carabino:before {
+    content: "\f102";
+}
+.icon-cemurmure:before {
+    content: "\f103";
+}
+.icon-dynamobile:before {
+    content: "\f104";
+}
+.icon-fractal:before {
+    content: "\f105";
+}
+.icon-homer:before {
+    content: "\f106";
+}
+.icon-ombres:before {
+    content: "\f107";
+}
+.icon-theater:before {
+    content: "\f108";
+}
