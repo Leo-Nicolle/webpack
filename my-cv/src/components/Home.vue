@@ -5,8 +5,8 @@
   <intro></intro>     
   <experience></experience>  
   <skill></skill>
-  <gallery></gallery>
-  <!-- <association></association> -->
+  <project></project>
+  <association></association>
 
   </div>
 </template>
@@ -15,9 +15,9 @@
   //import your components here
   import Intro from './Intro.vue'
   import Experience from './Experience.vue'
-  import Gallery from './Gallery.vue'
+  import Project from './Project.vue'
   import Skill from './Skill.vue'
-  // import Association from './Association.vue'
+  import Association from './Association.vue'
 
   export default {
     name: 'Home',
@@ -31,8 +31,8 @@
       'intro': Intro,
       'experience': Experience,
       'skill': Skill,
-      'gallery': Gallery,
-    //   // 'association' : Association,
+      'project': Project,
+      'association' : Association,
     },
  };
 

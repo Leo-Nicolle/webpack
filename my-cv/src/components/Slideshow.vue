@@ -4,30 +4,36 @@
     @enter="enterEl"
     @leave="leaveEl"
     :css="false">
-      <div class= "container" id = "slideshow-container" v-if = "visible">
-        <carousel 
-        :navigationEnabled="true"
-        :paginationEnabled = "false"
-        :perPage = "1">
-          <slide
-          v-for="(content,index) in slideshow.content"
-          v-bind:item="content"
-          v-bind:index="index"
-          v-bind:key="content"
-          >
-            <img class="image-slideshow"
-              v-if="content.endsWith('jpg')"
-              v-bind:src= "content"
-            >
-            </img>
-            <video class="image-slideshow" controls
-              v-if="content.endsWith('mp4')"
-            >
-            <source v-bind:src="content" type="video/mp4">
-            Your browser does not support the video tag.
-            </video>
-          </slide>
-        </carousel>
+      <div class= "container" :id = "slideshowid" v-if = "visible">
+        <img v-if = "slideshow.image" 
+            v-bind:src= "slideshow.image">
+        </img>   
+
+        <div v-else>       
+            <carousel 
+            :navigationEnabled="true"
+            :paginationEnabled = "false"
+            :perPage = "1">
+              <slide
+              v-for="(content,index) in slideshow.content"
+              v-bind:item="content"
+              v-bind:index="index"
+              v-bind:key="content"
+              >
+                <img class="image-slideshow"
+                  v-if="content.endsWith('jpg')"
+                  v-bind:src= "content"
+                >
+                </img>
+                <video class="image-slideshow" controls
+                  v-if="content.endsWith('mp4')"
+                >
+                <source v-bind:src="content" type="video/mp4">
+                Your browser does not support the video tag.
+                </video>
+              </slide>
+            </carousel>
+        </div>
           <div class="project-description">
               <p v-html="slideshow.description"></p>
           </div>
@@ -53,6 +59,7 @@ export default {
       change: false,
       ratio: {height : 0, opacity: 1},
       slideshow: {},
+      slideshowid: "",
     }
    },
 
@@ -81,7 +88,7 @@ export default {
           .onComplete(done);
     },
     tweenOpacity(){
-      const el = document.getElementById("slideshow-container");
+      const el = document.getElementById(this.slideshowid);
       this.change = true;
       const tweenOut =  new TWEEN.Tween(this.ratio) 
         .to({opacity: 0}, 800) 
