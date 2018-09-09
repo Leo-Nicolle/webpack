@@ -31,12 +31,12 @@ export default {
           an association dedicated into giving free evening classes to unproviledged pupils. French education 
           system is free but not egalitarian and suburbs are aggrieved in matter of education. This is for me 
           a way to participate into citizen mutual help.`,
-          image: `static/cemurmure/1.jpg`,
+          image: `static/teach/1.jpg`,
         },
         {
           title: `Drama`,
           icon: 'icon-theater',
-          slideshow: ['static/theater/1.jpg'],
+          image: `static/theater/1.jpg`,
           description: `I have started to practice drama in high school and during my university years, I 
           carried on with some friends. We created a Theater club and built two shows: A petites pierres and
           Petites histoire de la folie ordinaire. Then the group spread and the club ended.`,
