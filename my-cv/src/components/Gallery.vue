@@ -7,7 +7,7 @@
         <div class="icon-div">
           <i :class="project.icon"></i>
         </div>
-        <h3 v-show="!isGalleryActive" class="project-title"> {{ project.title  }}</h3>
+        <h3 class="project-title"> {{ project.title  }}</h3>
        </div>
        </li>
     </ul>
@@ -23,10 +23,18 @@ export default  {
   name:"Gallery",
   methods: {
     showSlideshow({content, description}){
-      this.$children[0].$data.visible = false;
-      this.$children[0].$data.visible = true;
-      this.$children[0].$data.slideshow.content = content;
-      this.$children[0].$data.slideshow.description = description;
+      const data = this.$children[0].$data;
+      const shouldChange = data.visible && data.slideshow.content !== content;
+      const shouldHide = data.visible && data.slideshow.content === content;
+      data.slideshow.content = content;
+      data.slideshow.description = description;
+      if(shouldChange){
+        this.$children[0].tweenOpacity();
+        return;
+      }
+      data.visible = false;
+      data.visible = !shouldHide;
+     
     },
   },
   data() {
@@ -100,7 +108,9 @@ export default  {
   max-width: 768px;
   max-height: 432px;
 }
-
+.project-title {
+  text-align:center;
+}
 
 ul{
   display: flex;

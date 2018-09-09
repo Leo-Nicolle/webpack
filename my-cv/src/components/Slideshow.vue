@@ -1,6 +1,10 @@
 <template>
   <div>
-      <div class= "container" v-if = "visible">
+    <transition 
+    @enter="enterEl"
+    @leave="leaveEl"
+    :css="false">
+      <div class= "container" id = "slideshow-container" v-if = "visible">
         <carousel 
         :navigationEnabled="true"
         :paginationEnabled = "false"
@@ -28,6 +32,7 @@
               <p v-html="slideshow.description"></p>
           </div>
       </div>
+    </transition> 
   </div>  
 </template>
 
@@ -45,25 +50,23 @@ export default {
    data(){
     return {
       visible: false,
-      ratio: {height : 0},
+      change: false,
+      ratio: {height : 0, opacity: 1},
       slideshow: {},
     }
    },
 
-   mathods: {
-      setVisible(val){
-        console.log("set visible");
-      },
+   methods: {
      enterEl(el, done) {
-      new TWEEN.Tween(this.ratio) 
-          .to({height: 1}, 3000) 
-          .easing(TWEEN.Easing.Quadratic.Out) 
-          .onUpdate(function() { 
-              el.style.setProperty('height', 
-                Math.round(this.height * 470)+"px");         
-          })
-          .start()
-          .onComplete(done);
+        new TWEEN.Tween(this.ratio) 
+            .to({height: 1}, 3000) 
+            .easing(TWEEN.Easing.Quadratic.Out) 
+            .onUpdate(function() { 
+                el.style.setProperty('height', 
+                  Math.round(this.height * 470)+"px");         
+            })
+            .start()
+            .onComplete(done);
     },
 
     leaveEl(el, done) {
@@ -77,14 +80,35 @@ export default {
           .start()
           .onComplete(done);
     },
-  },
-    watch: {
-    // whenever question changes, this function will run
-    slideshow: function (oldSlideshow, newSlideshow) {
-      console.log("change!!");
-      // this.answer = 'Waiting for you to stop typing...'
-      // this.debouncedGetAnswer()
-    }
+    tweenOpacity(){
+      const el = document.getElementById("slideshow-container");
+      this.change = true;
+      const tweenOut =  new TWEEN.Tween(this.ratio) 
+        .to({opacity: 0}, 800) 
+        .easing(TWEEN.Easing.Quadratic.Out) 
+        .onUpdate(function() { 
+            el.style.setProperty('opacity', this.opacity);         
+        })
+        .onComplete(() =>{
+          this.visible = false;
+          this.visible = true;
+
+        });
+      const tweenIn =new TWEEN.Tween(this.ratio) 
+          .to({opacity: 1}, 600) 
+          .easing(TWEEN.Easing.Quadratic.Out) 
+          .onUpdate(function() { 
+              el.style.setProperty('opacity', this.opacity);         
+          })
+         .onComplete(() =>{        
+          this.change = false;
+        })
+      
+       tweenOut
+        .chain(tweenIn)
+        .start();
+
+    },
   },
 };
 
@@ -102,13 +126,15 @@ export default {
 }
 
 .project-description{
-    padding-left: 40px;
+    margin-left: 40px;
     font-size: 24px;
     text-align: justify;
 
 }
 
 .VueCarousel{
+  position: relative;
+  left: -18px;
   max-width: 768px;
   width: 768px;
   height: 432px;
@@ -122,6 +148,7 @@ export default {
 
 .VueCarousel-slide {
   position: relative;
+  left: 50px;
   background: #42b983;
   color: #fff;
   font-family: Arial;
@@ -130,6 +157,9 @@ export default {
 }
 .VueCarousel-navigation-button{
   font-size: 18pt;
+}
+.VueCarousel-navigation-prev{
+    margin-left: 48px;
 }
 
 </style>
