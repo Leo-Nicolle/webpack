@@ -2,12 +2,10 @@
   <div>    
   <link rel="stylesheet" type="text/css" href="/static/font/icons.css">  
   <link rel="stylesheet" type="text/css" href="/static/style.css">  
-
   <intro></intro>     
   <experience></experience>  
   <skill></skill>
   <gallery></gallery>
-	<slideshow></slideshow>
   <!-- <association></association> -->
 
   </div>
@@ -20,7 +18,6 @@
   import Gallery from './Gallery.vue'
   import Skill from './Skill.vue'
   // import Association from './Association.vue'
-  import Slideshow from './Slideshow.vue'
 
   export default {
     name: 'Home',
@@ -36,7 +33,6 @@
       'skill': Skill,
       'gallery': Gallery,
     //   // 'association' : Association,
-      'slideshow': Slideshow,
     },
  };
 

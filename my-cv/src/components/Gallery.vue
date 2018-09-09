@@ -11,15 +11,23 @@
        </div>
        </li>
     </ul>
+    <slideshow></slideshow>
   </div>
 </template>
 
 <script>
 
+import Slideshow from './Slideshow.vue'
+
 export default  {
   name:"Gallery",
   methods: {
-    showSlideshow(){},
+    showSlideshow({content, description}){
+      this.$children[0].$data.visible = false;
+      this.$children[0].$data.visible = true;
+      this.$children[0].$data.slideshow.content = content;
+      this.$children[0].$data.slideshow.description = description;
+    },
   },
   data() {
     return {
@@ -79,7 +87,10 @@ export default  {
       ],
     }
   },
-}
+  components: {
+    'slideshow': Slideshow,
+  },
+};
 </script>
 
 <style lang="scss" scoped>

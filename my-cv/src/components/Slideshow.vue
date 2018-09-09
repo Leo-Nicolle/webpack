@@ -1,16 +1,12 @@
 <template>
   <div>
-    <transition 
-    @enter="enterEl"
-    @leave="leaveEl"
-    :css="false">
-      <div class= "container" v-if = "$store.state.slideshow.visible">
+      <div class= "container" v-if = "visible">
         <carousel 
         :navigationEnabled="true"
         :paginationEnabled = "false"
         :perPage = "1">
           <slide
-          v-for="(content,index) in $store.state.slideshow.content"
+          v-for="(content,index) in slideshow.content"
           v-bind:item="content"
           v-bind:index="index"
           v-bind:key="content"
@@ -29,10 +25,9 @@
           </slide>
         </carousel>
           <div class="project-description">
-              <p v-html="$store.state.slideshow.description"></p>
+              <p v-html="slideshow.description"></p>
           </div>
       </div>
-    </transition>
   </div>  
 </template>
 
@@ -46,9 +41,19 @@ requestAnimationFrame(animate);
 
 const TWEEN = require("tween.js");
 export default {
- 
-   ratio: {height : 0},
+  name: "Slideshow",
+   data(){
+    return {
+      visible: false,
+      ratio: {height : 0},
+      slideshow: {},
+    }
+   },
+
    mathods: {
+      setVisible(val){
+        console.log("set visible");
+      },
      enterEl(el, done) {
       new TWEEN.Tween(this.ratio) 
           .to({height: 1}, 3000) 
@@ -73,13 +78,21 @@ export default {
           .onComplete(done);
     },
   },
+    watch: {
+    // whenever question changes, this function will run
+    slideshow: function (oldSlideshow, newSlideshow) {
+      console.log("change!!");
+      // this.answer = 'Waiting for you to stop typing...'
+      // this.debouncedGetAnswer()
+    }
+  },
 };
 
 </script>
 
 <style>
 .container{    
-  overflow: hidden;
+    overflow: hidden;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;  
