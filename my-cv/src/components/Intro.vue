@@ -13,13 +13,10 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import { Component } from 'vue-property-decorator';
 
-@Component
-export default class App extends Vue {
-  version = APP_VERSION;
-}
+export default {
+  name: 'Intro',
+};
 </script>
 
 <style lang="scss" scoped>

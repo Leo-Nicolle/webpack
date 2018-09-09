@@ -1,11 +1,8 @@
 <template>
   <div>
-  <button v-on:click="$store.commit('showSlideshow', {})">
-    Permuter
-  </button>
   <h2>Skills</h2>
    <ul class= "skill-ul">
-       <li class="skill-li" v-for="skill in $store.state.skills">
+       <li class="skill-li" v-for="skill in skills">
          <h3 class="skill-title">
          <span>{{ skill.title}}</span>
          </h3>
@@ -24,13 +21,96 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import { Component } from 'vue-property-decorator';
+export default {
+  name: "Skill",
+  data() {
+    return {
+       skills: [
+        {
+          title: "WebGL",
+          subskills: [
+            {
+              title: "Babylonjs",
+              percent: "90%",
+            },
+            {
+              title: "Procedural mesh generation",
+              percent: "80%",
+            },
+            {
+              title: "Shaders",
+              percent: "50%",
+            },
+          ]
+        },
+        {
+          title: "Maths",
+          subskills: [
+            {
+              title: "Matrix cooking",
+              percent: "90%",
+            },
+            {
+              title: "Linear algebra",
+              percent: "70%",
+            },
+            {
+              title: "Graphs theory",
+              percent: "60%",
+            },
+          ]
+        },
+        {
+          title: "Computer Vision",
 
-@Component
-export default class App extends Vue {
-  
-}
+          subskills: [
+            {
+              title: "Camera callibration",
+              percent: "70%",
+            },  
+            {
+              title: "SVM",
+              percent: "65%",
+            },
+            {
+              title: "Feature extraction",
+              percent: "52%",
+            },
+            {
+              title: "Object recognition",
+              percent: "52%",
+            },
+          ]
+        },
+        {
+          title: "Tools",
+          subskills: [
+            {
+              title: "NPM",
+              percent: "80%",
+            },
+            {
+              title: "Node",
+              percent: "75%",
+            },
+            {
+              title: "Git",
+              percent: "70%",
+            },
+            {
+              title: "Webpack",
+              percent: "65%",
+            },
+            {
+              title: "Open-CV",
+              percent: "50%",
+            },
+          ]
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>

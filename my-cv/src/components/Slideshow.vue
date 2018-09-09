@@ -37,9 +37,6 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import { Component } from 'vue-property-decorator';
-import TWEEN from 'tween.js';
 
 function animate(time) {
   requestAnimationFrame(animate);
@@ -47,36 +44,35 @@ function animate(time) {
 }
 requestAnimationFrame(animate);
 
-
-@Component
-export default class App extends Vue {
+const TWEEN = require("tween.js");
+export default {
  
-   ratio = {height : 0};
-   
-   enterEl(el, done) {
-    new TWEEN.Tween(this.ratio) 
-        .to({height: 1}, 3000) 
-        .easing(TWEEN.Easing.Quadratic.Out) 
-        .onUpdate(function() { 
-            el.style.setProperty('height', 
-              Math.round(this.height * 470)+"px");         
-        })
-        .start()
-        .onComplete(done);
-  }
-  leaveEl(el, done) {
-     new TWEEN.Tween(this.ratio) 
-        .to({height: 0}, 3000) 
-        .easing(TWEEN.Easing.Quadratic.Out) 
-        .onUpdate(function() { 
-            el.style.setProperty('height', 
-              Math.round(this.height * 470)+"px");         
-        })
-        .start()
-        .onComplete(done);
-  }
+   ratio: {height : 0},
+   mathods: {
+     enterEl(el, done) {
+      new TWEEN.Tween(this.ratio) 
+          .to({height: 1}, 3000) 
+          .easing(TWEEN.Easing.Quadratic.Out) 
+          .onUpdate(function() { 
+              el.style.setProperty('height', 
+                Math.round(this.height * 470)+"px");         
+          })
+          .start()
+          .onComplete(done);
+    },
 
-
+    leaveEl(el, done) {
+       new TWEEN.Tween(this.ratio) 
+          .to({height: 0}, 3000) 
+          .easing(TWEEN.Easing.Quadratic.Out) 
+          .onUpdate(function() { 
+              el.style.setProperty('height', 
+                Math.round(this.height * 470)+"px");         
+          })
+          .start()
+          .onComplete(done);
+    },
+  },
 };
 
 </script>
