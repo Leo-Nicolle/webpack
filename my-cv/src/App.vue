@@ -1,14 +1,16 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <!-- <img src="./assets/logo.png"> -->
     <router-view/>
   </div>
-</template>
+
+   
+ </template>
 
 <script>
 export default {
   name: 'App'
-}
+};
 </script>
 
 <style>
@@ -20,6 +22,7 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
   padding: 10%;
+  padding-top: 0;
 }
 
 
