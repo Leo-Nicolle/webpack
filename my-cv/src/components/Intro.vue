@@ -5,7 +5,7 @@
           <p>Léo Nicolle</p>    
           <div id = "contact"> 
             <p> <a href="mailto:nicolle_leo@yahoo.fr">Contact</a></p>
-            <p> <a href="https://github.com/LeoNicolle?tab=repositories">GitHub</a></p>
+            <p> <a href="https://github.com/LeoNicolle?tab=repositories" target="_blank">GitHub</a></p>
 
           </div>
       </div>

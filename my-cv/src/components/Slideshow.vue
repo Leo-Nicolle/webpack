@@ -134,9 +134,7 @@ export default {
 
 .project-description{
     margin-left: 40px;
-    font-size: 24px;
     text-align: justify;
-
 }
 
 .VueCarousel{

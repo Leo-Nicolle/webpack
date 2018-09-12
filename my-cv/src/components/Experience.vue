@@ -1,6 +1,10 @@
 <template>
   <div>
-    <h2>Experience</h2>
+    <div class = "h2-container">
+      <div class = "h2-container">
+        <h2>Experience</h2>
+      </div>
+    </div> 
     <ul>
        <li v-for="experience in experiences">
          <h3 class="experience-title">
@@ -8,7 +12,6 @@
          </h3>
          <div class= "project-container">
            <p class="experience-description" v-html= " experience.description"> </p>
-           <!-- <h3 id = "projects-title">Projects</h3> -->
            <div class = "icon-list-container"> 
              <ul>
                 <li v-for="project in experience.projects" @click= "onProjectClick({url:project.link.url})">
@@ -31,9 +34,7 @@ export default {
 
   methods: {
     onProjectClick({url}){
-      console.log("click", url)
-      const win = window.open(url, '_blank');
-      // win.focus();
+      win = window.open(url, '_blank');
     },
   },
 

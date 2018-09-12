@@ -1,6 +1,8 @@
 <template>
   <div>
-  <h2>Skills</h2>
+   <div class = "h2-container">
+    <h2>Skills</h2>
+   </div>
    <ul class= "skill-ul">
        <li class="skill-li" v-for="skill in skills">
          <h3 class="skill-title">
@@ -39,7 +41,7 @@ export default {
             },
             {
               title: "Shaders",
-              percent: "50%",
+              percent: "60%",
             },
           ]
         },
@@ -86,10 +88,6 @@ export default {
           title: "Tools",
           subskills: [
             {
-              title: "NPM",
-              percent: "80%",
-            },
-            {
               title: "Node",
               percent: "75%",
             },
@@ -102,8 +100,13 @@ export default {
               percent: "65%",
             },
             {
+              title: "c++",
+              percent: "60%",
+            },
+
+            {
               title: "Open-CV",
-              percent: "50%",
+              percent: "55%",
             },
           ]
         },
