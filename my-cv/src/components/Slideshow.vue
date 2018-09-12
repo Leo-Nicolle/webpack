@@ -139,7 +139,8 @@ export default {
 
 .VueCarousel{
   position: relative;
-  left: -18px;
+  left: 28px;
+  margin-right: 28px;
   max-width: 768px;
   width: 768px;
   height: 432px;
@@ -147,13 +148,12 @@ export default {
 
 .image-slideshow{
   max-width: 768px;
+  min-width: 768px;
   height: 432px;
   width: 768px;
 }
 
 .VueCarousel-slide {
-  position: relative;
-  left: 50px;
   background: #42b983;
   color: #fff;
   font-family: Arial;
@@ -164,7 +164,7 @@ export default {
   font-size: 18pt;
 }
 .VueCarousel-navigation-prev{
-    margin-left: 48px;
+    padding-right: 28px;
 }
 
 </style>
