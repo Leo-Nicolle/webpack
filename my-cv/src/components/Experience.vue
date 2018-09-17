@@ -25,6 +25,19 @@
         </div>
        </li>
     </ul>
+     <div class = "h2-container">
+      <div class = "h2-container">
+        <h2>Education</h2>
+      </div>
+    </div> 
+    <ul class= "education">
+       <li v-for="education in educations">
+         <h3 class="education-title">
+          <span class= "year">{{ education.year}}</span> 
+          <span class= "title"> -- {{ education.title}}</span>
+         </h3>
+       </li>
+    </ul>
   </div>
 </template>
 
@@ -40,6 +53,20 @@ export default {
 
   data () {
     return {
+      educations: [
+        {
+          year: "2016",
+          title:"Master's Degree in Image Processing and Artificial Intelligence, Université de Bourgogne",
+        },
+        {
+          year: "2015",
+          title:"Master's Degree (first year), ERASMUS in Budapest, Hungary",
+        },
+        {
+          year: "2014",
+          title:"Bachelor Degree, in maths and computer science, Université de Bourgogne",
+        }
+      ],
       experiences: [
         {
           year: `2017`,
@@ -122,6 +149,18 @@ export default {
 
 .experience-description{
   text-align: left;
+}
+
+.education{
+  font-size: 16px;
+}
+
+.year{
+  font-family: 'Helvetica_Roman', sans-serif;
+}
+
+.title{
+  font-size: 14px;
 }
 
 </style>
