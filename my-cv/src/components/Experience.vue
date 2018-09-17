@@ -33,8 +33,8 @@
     <ul class= "education">
        <li v-for="education in educations">
          <h3 class="education-title">
-          <span class= "year">{{ education.year}}</span> 
-          <span class= "title"> -- {{ education.title}}</span>
+          <span class= "year">{{ education.year}} -- </span> 
+          <span class= "title">{{ education.title}}</span>
          </h3>
        </li>
     </ul>
@@ -157,10 +157,12 @@ export default {
 
 .year{
   font-family: 'Helvetica_Roman', sans-serif;
+  font-size: 16px;
 }
 
 .title{
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: initial;
 }
 
 </style>

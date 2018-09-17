@@ -145,6 +145,9 @@ export default {
   width: 768px;
   height: 432px;
 }
+.VueCarousel-slide{
+	background: unset;
+}
 
 .image-slideshow{
   max-width: 768px;
