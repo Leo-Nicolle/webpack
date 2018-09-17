@@ -5,7 +5,7 @@
     @leave="leaveEl"
     :css="false">
       <div class= "container" :id = "slideshowid" v-if = "visible">
-        <img v-if = "slideshow.image" 
+        <img v-if = "slideshow.image"  class= "image-slideshow"
             v-bind:src= "slideshow.image">
         </img>   
 

@@ -14,8 +14,7 @@ export default  {
          {
             title: 'H.O.M.E.R',
             icon: 'icon-homer',
-            galleryImage: 'static/homer/1.jpg',
-            slideshow: ['static/homer/1.jpg'],
+            image: 'static/homer/1.jpg',
             description: `H.O.M.E.R is an out of space story telling machine. The user inserts 3 words 
             into it, press a button and H.O.M.E.R prints him a story on a receipt paper. Magic !<br/>
             Inside H.O.M.E.R there is a RFID reader, a Raspberry-PI and a thermal printer.<br/>
@@ -25,8 +24,7 @@ export default  {
          {
           title: 'Dynamobile',
           icon: 'icon-dynamobile',
-          galleryImage: 'static/dynamo/1.jpg',
-          slideshow: ['static/dynamo/1.jpg', 'static/dynamo/1.mp4', 'static/dynamo/2.jpg'],
+          slideshow: ['static/dynamo/1.jpg', 'static/dynamo/2.jpg'],
           description: `Dynamobile is a slot-car circuit plugged on bike dynamo.<br/> 
           The faster you pedal, the faster goes your car!<br/>
           A sensor placed below the circuit is used to measure rider's lap time,
@@ -36,8 +34,8 @@ export default  {
           {
             title: 'Les Ombres',
             icon: 'icon-ombres',
-            galleryImage: 'static/ombres/1.jpg',
-            slideshow: ['static/ombres/1.jpg', 'static/ombres/1.mp4', 'static/ombres/2.jpg'],
+            slideshow: ['static/ombres/1.jpg', 'static/ombres/2.jpg',
+             'static/ombres/3.jpg', 'static/ombres/4.jpg'],
             description: `Les ombres is a poetic installation.<br/>
             People are invited to create a shape with cardboard to complete a participative
           moving shadows scene. <br/>
@@ -46,8 +44,7 @@ export default  {
           {
             title: 'Bwatazik',
             icon: 'icon-bruit',
-            galleryImage: 'static/bwatazik/1.jpg',
-            slideshow: ['static/bwatazik/1.jpg', 'static/bwatazik/1.mp4', 'static/bwatazik/2.jpg'],
+            slideshow: ['static/bwatazik/1.jpg', 'static/bwatazik/2.jpg'],
             description: `Bwatazik is a musical installation.<br/> 
             The table is stuffed with sensors (piezo and infrared), each one triggers a sample.<br/>
             Four people can play simultaneously ( drum, bass, voice and affects).
@@ -56,8 +53,7 @@ export default  {
           {
             title: 'Carabino',
             icon: 'icon-carabino',
-            galleryImage: 'static/carabino/1.jpg',
-            slideshow: ['static/carabino/1.jpg', 'static/carabino/1.mp4', 'static/carabino/2.jpg'],
+            slideshow: ['static/carabino/1.jpg', 'static/carabino/2.jpg'],
             description: `Carabinophotomaton is a pellet gun  shooting stand where 
             the user is taken in photo if he manages to reach the target's center.<br/>
             The photo is then printed and the player can bring home a nice souvenir of our festival.`
