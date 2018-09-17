@@ -67,15 +67,15 @@ export default {
 
           subskills: [
             {
-              title: "Camera callibration",
+              title: "SVM",
               percent: "70%",
             },  
             {
-              title: "SVM",
+              title: "Feature extraction",
               percent: "65%",
             },
             {
-              title: "Feature extraction",
+              title: "Camera callibration",
               percent: "52%",
             },
             {
