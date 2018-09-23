@@ -157,7 +157,7 @@ export default {
 }
 
 .VueCarousel-slide {
-  background: #42b983;
+  background: unset;
   color: #fff;
   font-family: Arial;
   font-size: 24px;
