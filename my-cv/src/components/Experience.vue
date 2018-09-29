@@ -72,9 +72,10 @@ export default {
           year: `2017`,
           title: `WebGL developper at Wanadev`,
           time: `2 years`,
-          description: `I have mainly worked on a big WebGL project: Kazaplan, plus some little side-projects related to 3D.<br/>
-           We were a team of 10 developpers, working with a strict gitlab workflow.<br/>
-          I contributed on some big features of kazaplan like the procedural generation of the walls and the roofs, participated a bit to the project managment and had daily communication with our client. I leaned so much at Wanadev, and I will always be thanksfull to them.`,
+          description: `The main project that I was involved in is called Kazaplan, a big WebGL app, as well as some other little side-projects related to 3D.<br/>
+           We were a team of 10 developers, working within a strict gitlab workflow.<br/>
+          I contributed to some main features of Kazaplan such as the procedural generation of the walls and roofs, had some responsibility in project management and liaised daily with our client.
+<br>I have learned so much at Wanadev, and I will always be thankful to them.`,
           projects: [
             {
               topic: `Wanadev`,
@@ -107,10 +108,9 @@ export default {
           year: `2016`,
           title: `Internship at LIRIS (CNRS)`,
           time: `6 months`,
-          description: `During this internship I developed a program able to extract the skyline from a landscape image and match it with a Digital Elevation Model.<br/>
-            The final goal is to create a smart-phone application able to display geo-localized
-            informations in AR.<br/>
-            This work led to a publication at VISAPP 2017`,
+          description: `During this internship I developed a program that extracts the skyline from a landscape image and matches it with a Digital Elevation Model.<br/>
+The final goal was to create a smart-phone application that was able to display geo-localized informations in AR.<br/>
+This work led to a publication at VISAPP 2017.`,
           projects: [
              {
               topic: `LIRIS`,
