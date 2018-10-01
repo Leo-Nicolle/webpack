@@ -1,0 +1,69 @@
+@font-face {
+    font-family: "icons";
+    src: url("./icons.eot?b070d7cd2ddcbd0b2c18f924df0e06c7?#iefix") format("embedded-opentype"),
+url("./icons.woff2?b070d7cd2ddcbd0b2c18f924df0e06c7") format("woff2"),
+url("./icons.woff?b070d7cd2ddcbd0b2c18f924df0e06c7") format("woff"),
+url("./icons.ttf?b070d7cd2ddcbd0b2c18f924df0e06c7") format("truetype"),
+url("./icons.svg?b070d7cd2ddcbd0b2c18f924df0e06c7#icons") format("svg");
+}
+
+i {
+    line-height: 1;
+}
+
+i[class^="icon-"]:before, i[class*=" icon-"]:before {
+    font-family: icons !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-bruit:before {
+    content: "\f101";
+}
+.icon-carabino:before {
+    content: "\f102";
+}
+.icon-cemurmure:before {
+    content: "\f103";
+}
+.icon-dynamobile:before {
+    content: "\f104";
+}
+.icon-fractal:before {
+    content: "\f105";
+}
+.icon-home:before {
+    content: "\f106";
+}
+.icon-homer:before {
+    content: "\f107";
+}
+.icon-homework:before {
+    content: "\f108";
+}
+.icon-homework2:before {
+    content: "\f109";
+}
+.icon-liris:before {
+    content: "\f10a";
+}
+.icon-mountains:before {
+    content: "\f10b";
+}
+.icon-ombres:before {
+    content: "\f10c";
+}
+.icon-poker:before {
+    content: "\f10d";
+}
+.icon-theater:before {
+    content: "\f10e";
+}
+.icon-wanadev:before {
+    content: "\f10f";
+}

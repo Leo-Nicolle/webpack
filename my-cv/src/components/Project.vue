@@ -58,42 +58,11 @@ In front of the screen, a crank triggers the light moving system, for more varia
     }
   },
 };
+
 </script>
 
 <style lang="scss" scoped>
 
-.item-gallery{
-  min-width: 768px;
-  min-height: 432px;
-  max-width: 768px;
-  max-height: 432px;
-}
-.item-title {
-  text-align:center;
-}
 
-ul{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0;
-  margin-left:auto;
-  margin-right:auto;
-  text-align: center;
-}
-li{
-  cursor: pointer;
-  padding-right: 16px;
-  width: 15%;
-  padding: 6px 0px 6px 0px;
-  border-radius: 16px;
-}
-
-li:hover{
-  background-color: var( --blue-2);
-}
-.icon-div{
-  font-size: 56px;
-}
 
 </style>

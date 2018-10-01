@@ -50,4 +50,13 @@ p, a{
   margin-bottom: 32px;
 
 }
+
+@media only screen and (max-width: 768px) {
+   p, a{
+    font-size: 18px;
+   }
+}
+
+    
+
 </style>

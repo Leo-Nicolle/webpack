@@ -12,7 +12,6 @@
 </template>
 
 <script>
-  //import your components here
   import Intro from './Intro.vue'
   import Experience from './Experience.vue'
   import Project from './Project.vue'

@@ -63,7 +63,7 @@ export default {
           ]
         },
         {
-          title: "Computer Vision",
+          title: "Vision",
 
           subskills: [
             {
@@ -119,6 +119,7 @@ export default {
 <style lang="scss" scoped>
   ul{
     padding: 0;
+    display: block; 
   }
   li{
 
@@ -126,13 +127,15 @@ export default {
 
   .skill-ul{    
     display: flex;
+    flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-between;
     text-align: left;
     width: 100%;
+    min-width: 250px;
   }
   .skill-li{
-    width: 25%;
+    min-width: 250px;
     padding-right: 16px;
   }
   .skill-li > h3{
@@ -164,6 +167,21 @@ export default {
       top: 4px;
       font-size: 14px;
       white-space: nowrap;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .container{
+      flex-wrap: wrap; 
+    }
+    .slideshow-image-container {
+        width: 85%;
+        min-width: 85%;
+        margin: auto;
+    }
+     .subskill-ul{    
+      min-width: 255px;
+      margin-left: 10%;
+    }
   }
 
 </style>

@@ -42,6 +42,7 @@
 </template>
 
 <script>
+
 export default {
   name: "Experience",
 
@@ -139,19 +140,21 @@ This work led to a publication at VISAPP 2017.`,
 </script>
 
 <style lang="scss" scoped>
+
 #projects-title{
   text-align: left;
 }
 
 .project-container{
-  margin-left: 32px;
 }
 
 .experience-description{
   text-align: left;
+  margin-left: 32px;
 }
 
 .education{
+  display: block;
   font-size: 16px;
 }
 
@@ -165,4 +168,23 @@ This work led to a publication at VISAPP 2017.`,
   font-weight: initial;
 }
 
+li{
+  margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+   .project-container{
+   	margin-left: 12px;
+   }
+   .experience-description{
+     text-align: justify;
+     margin-left: 4px;
+   }
+   .education-title{
+     letter-spacing: 0.1px;
+     line-height: 25px;
+   }
+
+
+}
 </style>

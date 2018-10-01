@@ -12,7 +12,7 @@ export default {
       "slideshowid":"association-slideshow",
       items: [
         {
-          title: `Ce Murmure Festival`,
+          title: `Ce Murmure`,
           icon: 'icon-cemurmure',
           slideshow: ['static/cemurmure/1.jpg','static/cemurmure/2.jpg','static/cemurmure/3.jpg',
           'static/cemurmure/4.jpg','static/cemurmure/5.jpg'],
@@ -23,7 +23,7 @@ This year was the 8th edition which welcomed 2000 people.<br/>
 Our festival continues to be a family event, with activities for kids, youth and a wide range of music styles.<br/>`,
         },
         {
-          title: `Voluntary teacher`,
+          title: `Teacher`,
           icon: 'icon-homework',
           description: `For 2 years now, I have volunteered as a Math and Science teacher at SPES Villeurbanne, an association dedicated to giving free evening classes to underprivileged youth.<br/>
 The French education system is free but not egalitarian and suburbs are aggrieved in matter of education.<br/>
@@ -45,7 +45,4 @@ This is a way for me to give back to the community.<br/>`,
 
 <style scoped>
 
-.association{
-  max-width: 800px;
-}
 </style>
