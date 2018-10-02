@@ -8,10 +8,12 @@
     "homer": "\\f107",
     "homework": "\\f108",
     "homework2": "\\f109",
-    "liris": "\\f10a",
-    "mountains": "\\f10b",
-    "ombres": "\\f10c",
-    "poker": "\\f10d",
-    "theater": "\\f10e",
-    "wanadev": "\\f10f"
+    "left-arrow": "\\f10a",
+    "liris": "\\f10b",
+    "mountains": "\\f10c",
+    "ombres": "\\f10d",
+    "poker": "\\f10e",
+    "right-arrow": "\\f10f",
+    "theater": "\\f110",
+    "wanadev": "\\f111"
 }

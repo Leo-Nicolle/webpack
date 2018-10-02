@@ -10,19 +10,23 @@
           <img v-if = "slideshow.image" class= "image-slideshow"
             v-bind:src= "slideshow.image">
           </img>   
-
-          <ul v-else class="ul-slideshow">
-             <li v-for="(content,index) in slideshow.content"
-               v-bind:index="index"
-               >
-                 <img class="image-slideshow"
-                  v-bind:src= "content"
-                  v-if = "isVisible(index)"
-                  @click= "onImageClick({index, array: slideshow.content})"
-                >
-                </img>
-             </li>
-          </ul>
+          <div v-else class = "slideshow-container">
+            <i class="icon-left-arrow icon-slideshow"
+            @click = "onPrevClick({array: slideshow.content})"></i>
+            <ul class="ul-slideshow">
+               <li v-for="(content,index) in slideshow.content"
+                 v-bind:index="index"
+                 >
+                   <img class="image-slideshow"
+                    v-bind:src= "content"
+                    v-if = "isVisible(index)"
+                  >
+                  </img>
+               </li>
+            </ul>
+            <i class="icon-right-arrow icon-slideshow"
+              @click = "onNextClick({array: slideshow.content})"></i>
+          </div>
         </div>
         <div class="project-description">
             <p v-html="slideshow.description"></p>
@@ -56,6 +60,7 @@ export default {
 
    methods: {
      enterEl(el, done) {
+        this.currentIndex = 0;
         this.tweenHeight(0, 1, el, done);
     },
     leaveEl(el, done) {
@@ -65,9 +70,13 @@ export default {
       console.log("isVisible", index, this.currentIndex);
       return this.currentIndex == index;
     },
-    onImageClick({index, array}) {
-      this.currentIndex = (index+1)%array.length;
+    onPrevClick({array}) {
+      this.currentIndex = (this.currentIndex+1)%array.length;
     },
+    onNextClick({array}) {
+      this.currentIndex = (this.currentIndex+1)%array.length;
+    },
+
     tweenOpacity(){
       const el = document.getElementById(this.slideshowid);
       this.change = true;
@@ -143,19 +152,34 @@ export default {
     margin-left: 32px;
     margin-top: 16px;
 }
+.slideshow-container{
+  display: flex;
+  align-items: center;
+}
+.button-slideshow{
+  max-height: 20px;
+}
+
 .ul-slideshow{
   padding: 0;
   margin: 0;
-
 }
 .image-slideshow {
     width: 100%;
 }
-
+.icon-slideshow{
+  font-size: 22px;
+  cursor: pointer;
+  padding: 4px 0px 0px 0px;
+  border-radius: 4px;
+  margin: 0 4px;
+}
+.icon-slideshow:hover{
+  background-color: var( --blue-2);
+}
 .project-description{
     text-align: justify;
     margin-left: 32px ;
-
 }
 
 @media only screen and (max-width: 768px) {
@@ -170,6 +194,12 @@ export default {
     }
     .project-description{
         margin: 0 12px;
+    }
+    .icon-slideshow{
+       font-size: 10px;
+       padding: 2px 0px 0px 0px;
+       border-radius: 2px;
+       margin: 0 2px;
     }
 }
 
