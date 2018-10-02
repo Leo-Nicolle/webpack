@@ -52,7 +52,7 @@ export default {
       visible: false,
       currentIndex: 0,
       change: false,
-      ratio: {height : 0, opacity: 1, scrollDiff: 0},
+      ratio: {height : 0, opacity: 1, scrollDiff: 0, opacity: 1},
       slideshow: {},
       slideshowid: "",
     }
@@ -78,25 +78,24 @@ export default {
     },
 
     tweenOpacity(){
-      const el = document.getElementById(this.slideshowid);
       this.change = true;
+      this.ratio.opacity = 1;
+      this.ratio.tweenOut = true;
       const tweenOut =  new TWEEN.Tween(this.ratio) 
-        .to({opacity: 0}, 800) 
+        .to({opacity:0}, 800) 
         .easing(TWEEN.Easing.Quadratic.Out) 
-        .onUpdate(function() {  
-            el.style.setProperty('opacity', this.opacity);         
-        })
+        .onUpdate(this.computeSlideshowHeightOpacity)
         .onComplete(() =>{
           this.visible = false;
           this.visible = true;
-
+          this.ratio.tweenOut = false;
         });
       const tweenIn =new TWEEN.Tween(this.ratio) 
-          .to({opacity: 1}, 600) 
+          .to({opacity:1}, 600) 
           .easing(TWEEN.Easing.Quadratic.Out) 
-          .onUpdate(function() { 
-              el.style.setProperty('opacity', this.opacity);         
-          })
+          .onUpdate(
+              this.computeSlideshowHeightOpacity         
+          )
          .onComplete(() =>{        
           this.change = false;
         })
@@ -109,12 +108,6 @@ export default {
     tweenHeight(start,  end ,el , done){
        this.ratio.element = el;
        this.ratio.height = start;
-        const image = el.firstChild.firstChild;
-        const text = el.children[1];
-       /* this.ratio.element = text.offsetTop < image.offsetTop + image.offsetHeight
-          ? text
-          : image;
-        */
        new TWEEN.Tween(this.ratio) 
           .to({height: end}, 3000) 
           .easing(TWEEN.Easing.Quadratic.Out) 
@@ -123,11 +116,31 @@ export default {
           .onComplete(done);
     },
     computeSlideshowHeight(){
+        const image = this.ratio.element.firstChild.firstChild;
+        const text = this.ratio.element.children[1];
+        const offset = image.offsetTop + image.offsetHeight -1 < text.offsetTop
+          ? text.offsetHeight
+          : 18;
         this.ratio.element.style.setProperty('height', 
           Math.round(this.ratio.height 
             * (this.ratio.element.firstChild.firstChild.offsetWidth 
-            / 1.777 + 18)
+            / 1.777 + offset)
           )+"px");        
+    },
+    computeSlideshowHeightOpacity(){
+        const opacityElement = document.getElementById(this.slideshowid);
+        opacityElement.style.setProperty('opacity', this.ratio.opacity);
+
+        if(this.ratio.tweenOut) return;
+        const image = this.ratio.element.firstChild.firstChild;
+        const text = this.ratio.element.children[1];
+        const diff = image.offsetTop + image.offsetHeight -1 < text.offsetTop
+          ? text.offsetHeight
+          : 0;
+        this.ratio.element.style.setProperty('height', 
+          Math.round(this.ratio.opacity * diff + 
+            this.ratio.element.firstChild.firstChild.offsetWidth / 1.777
+          )+"px");
     }
 
   },
