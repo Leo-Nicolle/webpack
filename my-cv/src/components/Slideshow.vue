@@ -209,10 +209,13 @@ export default {
         margin: 0 12px;
     }
     .icon-slideshow{
-       font-size: 10px;
+       font-size: 14px;
        padding: 2px 0px 0px 0px;
        border-radius: 2px;
        margin: 0 2px;
+    }
+    .icon-slideshow:hover{
+      background-color: inherit;
     }
 }
 
