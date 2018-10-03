@@ -10,5 +10,5 @@ echo -n User:
 read username
 fullpath="$username@$IP:home/$username/$path"
 echo -e "Sending to remote at $fullpath"
-# ssh $username"@$IP:/home/$username/$path"
 scp -r dist/ $username@$IP:/home/$username/$path
+# ssh "$username@$IP"
