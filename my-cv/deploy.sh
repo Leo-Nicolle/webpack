@@ -5,13 +5,13 @@ path="server/public/cv/"
 
 #read details
 echo -e "Building..."
-npm run build
+# npm run build
 echo -n User:
 read username
-fullpath="$username@$IP:home/$username/$path"
-echo -e "Removing old version at $fullpath"
-
+fullpath="/home/$username/$path"
+remotePath="$username@$IP:$fullpath"
+echo -e "Removing old version at $remotePath"
 ssh "$username@$IP" "rm -R $fullpath"
-echo -e "Sending to remote at $fullpath"
+echo -e "Sending to remote at $remotePath"
 
 scp -r dist/ $username@$IP:/home/$username/$path

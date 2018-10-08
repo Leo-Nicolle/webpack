@@ -67,7 +67,6 @@ export default {
       this.tweenHeight(1, 0, el, done);
     },
     isVisible(index) {
-      console.log("isVisible", index, this.currentIndex);
       return this.currentIndex == index;
     },
     onPrevClick({array}) {
