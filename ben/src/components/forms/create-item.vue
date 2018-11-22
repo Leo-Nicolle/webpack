@@ -12,10 +12,10 @@
       <p>
         <span>Aouter un constituant</span>
         <suggestitem v-on:item-selected="addSelectedItem"
-        v-bind:items ='getFilteredItems()'></suggestitem>
+        v-bind:items ='allItems'></suggestitem>
       </p>
        <ul class = "subitem-list">
-         <li v-for="item in selectedItems">
+         <li v-for="item in subItems">
            <addsubitem :item="item" v-on:item-unselected="onItemUnselect(item)"></addsubitem>
          </li>
        </ul>
@@ -42,7 +42,7 @@ export default {
     return {
       name: '',
       time: 0,
-      selectedItems: [],
+      subItems: [],
     };
   },
 
@@ -52,25 +52,26 @@ export default {
 
   methods: {
     addSelectedItem(item) {
-      this.selectedItems = this.selectedItems.concat(item);
+      this.subItems = this.subItems.concat(item);
     },
-    getFilteredItems() {
-      return this.allItems.filter(item => !this.selectedItems
-        .find(({ name }) => item.name === name));
-    },
+    // getFilteredItems() {
+    //   return this.$store.getters.allItems.filter(item => !this.subItems
+    //     .find(({ name }) => item.name === name));
+    // },
 
     getSelectedItemNames() {
-      return this.selectedItems().map(({ name }) => name);
+      return this.subItems().map(({ name }) => name);
     },
 
     onItemUnselect(item) {
-      this.selectedItems = this.selectedItems.filter(({ name }) => item.name !== name);
+      this.subItems = this.subItems.filter(({ name }) => item.name !== name);
     },
 
     onSubmit() {
       const item = {
         name: this.name,
         time: this.time,
+        subItems: this.subItems,
       };
       this.$store.commit('pushItem', item);
     },
@@ -79,7 +80,7 @@ export default {
   components: {
     suggestitem: Searchitem,
     addsubitem: AddSubItem,
-    listItem: ListItems,
+    listitems: ListItems,
 
   },
 };

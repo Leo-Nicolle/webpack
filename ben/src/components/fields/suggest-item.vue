@@ -1,7 +1,6 @@
 <template>
   <div>
-    <!-- <input   v-model="inputText" v-on:input="onInputChange()"/> -->
-    <filter-item v-on:input-change="onInputChange" v-bind:items="items"> </filter-item>
+    <filter-item v-on:input-change="onInputChange" v-bind:items="items" v-model="inputText"> </filter-item>
     <div id ="suggest-container">
       <ul class ="suggestion-list">
         <li v-for="item in filteredItems"
@@ -25,18 +24,19 @@ export default {
   data() {
     return {
       selected: null,
+      inputText: '',
+      filteredItems:[],
     };
   },
 
   props: {
-    filteredItems: [],
-    items: [],
+    items: {type: Array, default: () => []},
   },
 
   methods: {
     onSuggestClick(item) {
       this.selected = item;
-      this.inputText = '';
+      this.inputText = "";
       this.$emit('item-selected', item);
     },
     onInputChange(filteredItems){

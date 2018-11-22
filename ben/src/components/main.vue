@@ -1,19 +1,23 @@
 <template>
   <div>
     <createItem></createItem>
+    <listItem v-bind:items="allItems"></listItem>
   </div>
 </template>
 
 <script>
 import CreateItemForm from './forms/create-item';
 import ListItems from './views/list-items';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'Main',
   components: {
     createItem: CreateItemForm,
     listItem: ListItems,
-
+  },
+  computed: {
+    ...mapGetters(['allItems']),
   },
 };
 </script>

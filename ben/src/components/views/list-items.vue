@@ -1,6 +1,5 @@
 <template>
     <div class = "list-item">
-
        <ul>
          <li v-for="item in items">
             <p class = "item-name"> Name: {{item.name}}</p>

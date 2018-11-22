@@ -1,10 +1,5 @@
 <template>
-  <div>
-    <input   v-model="inputText" v-on:input="onInputChange()"/>
-    <div id ="list-container">
-      <list-items :items="filteredItems"> </list-items>
-    </div>
-  </div>
+    <input  v-model="inputText" v-on:input="onInputChange()"/>
 </template>
 
 <script>
@@ -13,8 +8,9 @@ export default {
   name: 'SearchItem',
   data() {
     return {
-      filteredItems: [],
       limit: 10,
+      dataFilteredItems: this.filteredItems,
+      inputText: ""
     };
   },
   props: {
@@ -30,11 +26,11 @@ export default {
         return;
       }
       /* Full control over filtering. Maybe fetch from API?! Up to you!!! */
-      this.filteredItems = this.items.filter(item =>
+      const filteredItems = this.items.filter(item =>
         item.name.toLowerCase().indexOf(this.inputText.toLowerCase()) > -1)
         .slice(0, this.limit);
 
-      this.$emit("input-change", this.filteredItems);
+      this.$emit("input-change", filteredItems);
     },
   },
 
