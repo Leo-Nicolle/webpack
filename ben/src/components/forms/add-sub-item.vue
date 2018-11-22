@@ -13,7 +13,7 @@
 <script>
 
 export default {
-  name: 'SubItemForm',
+  name: 'AddSubItem',
   data() {
     return {
       quantity: 0,
@@ -31,7 +31,6 @@ export default {
       this.$emit('quantity-change', this.quantity);
     },
     onDeleteClick() {
-      console.log(this.item);
       this.$emit('item-unselected', this.item);
     },
   },

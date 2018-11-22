@@ -1,13 +1,8 @@
 <template>
   <div>
     <input   v-model="inputText" v-on:input="onInputChange()"/>
-    <div id ="suggest-container">
-      <ul class ="suggestion-list">
-        <li v-for="item in filteredItems"
-        @click="onSuggestClick(item)" v-if ="!selected">
-          {{ item.name }}
-        </li>
-      </ul>
+    <div id ="list-container">
+      <list-items :items="filteredItems"> </list-items>
     </div>
   </div>
 </template>
@@ -15,10 +10,9 @@
 <script>
 
 export default {
-  name: 'Searchitem',
+  name: 'SearchItem',
   data() {
     return {
-      selected: null,
       filteredItems: [],
       limit: 10,
     };
@@ -26,32 +20,21 @@ export default {
   props: {
     items: {
       type: Array,
-      default: [],
+      default:() => [],
     },
   },
 
   methods: {
-    setItems(items) {
-      this.items = items;
-    },
-    onSelected(option) {
-      this.selected = option.item;
-    },
     onInputChange() {
       if (this.inputText === '' || this.inputText === undefined) {
         return;
       }
-      this.selected = null;
-
       /* Full control over filtering. Maybe fetch from API?! Up to you!!! */
       this.filteredItems = this.items.filter(item =>
         item.name.toLowerCase().indexOf(this.inputText.toLowerCase()) > -1)
         .slice(0, this.limit);
-    },
-    onSuggestClick(item) {
-      this.selected = item;
-      this.inputText = '';
-      this.$emit('item-selected', item);
+
+      this.$emit("input-change", this.filteredItems);
     },
   },
 

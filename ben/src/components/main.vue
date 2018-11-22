@@ -1,17 +1,18 @@
 <template>
   <div>
-    <formItem></formItem>
-
+    <createItem></createItem>
   </div>
 </template>
 
 <script>
-import FormItem from './Formitem';
+import CreateItemForm from './forms/create-item';
+import ListItems from './views/list-items';
 
 export default {
   name: 'Main',
   components: {
-    formItem: FormItem,
+    createItem: CreateItemForm,
+    listItem: ListItems,
 
   },
 };
