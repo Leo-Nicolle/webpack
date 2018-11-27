@@ -12,7 +12,15 @@ export default {
   name: 'App',
   components: {
     mainmenu: Menu
-  }
+  },
+
+  mounted: () => {
+    this.$http.get(url)
+    .then((response) => {
+        if(!response.body) return;
+        console.log(response.body)
+    });
+	},
 };
 </script>
 

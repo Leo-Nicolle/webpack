@@ -25,6 +25,10 @@ const mutations = {
     state.items.push(item);
   },
 
+  popItem(state, id) {
+    state.items = state.items.filter(item => item.id !== id);
+  },
+
   updateItem(state, id, data) {
     const itemIndex = state.items.findIndex(item => item.id === id);
     if (itemIndex < 0) return;

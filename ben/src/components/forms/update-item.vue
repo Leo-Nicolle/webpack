@@ -28,10 +28,14 @@
          </li>
        </ul>
 
-       <p>
-        <button @click="onSubmit()" v-if="mode === 'add'">Ajouter</button>
-        <button @click="onSubmit()" v-else>Modifier</button>
+       <p v-if="mode === 'add'">
+         <button @click="onSubmit()" >Ajouter</button>
        </p>
+       <p v-else>
+         <button @click="onSubmit()" >Modifier</button>
+         <button @click="onDelete()" >Supprimer</button>
+       </p>
+
    </div>
 </template>
 
@@ -81,7 +85,10 @@ export default {
       }else{
         this.$store.commit('updateItem', this.item.id, this.item);
       }
-
+    },
+    onDelete() {
+        this.$store.commit('popItem', this.item.id);
+        this.$router.push(`/items/`);
     },
   },
 

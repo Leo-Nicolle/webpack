@@ -47,10 +47,16 @@ export default {
   .form-container{
     display: block;
   }
-  /* .subitem-list{
+
+  .list-item > ul>li{
+    cursor: pointer;
+    margin: 6px 0 6px 0;
+    line-height: 18px;
+    list-style: none;
+
   }
-  .subitem-list > li{
-    margin-top: 12px;
-    display: flex;
-  } */
+  .list-item > ul>li:hover{
+    background-color: grey;
+  }
+
 </style>
