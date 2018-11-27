@@ -35,11 +35,6 @@ export default {
         this.$router.push(`/item/${id}/edit`);
     },
   },
-
-  mounted: () => {
-    console.log("ici",utils.getEmptyItem());
-  },
-
 };
 </script>
 

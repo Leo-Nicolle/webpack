@@ -7,6 +7,7 @@
 
 <script>
 import Menu from "@/components/menu.vue"
+import store from "@/store"
 
 export default {
   name: 'App',
@@ -15,11 +16,7 @@ export default {
   },
 
   mounted: () => {
-    this.$http.get("")
-    .then((response) => {
-        if(!response.body) return;
-        console.log(response.body)
-    });
+    store.dispatch("pullItemsFromServer");
 	},
 };
 </script>

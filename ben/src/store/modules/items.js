@@ -1,4 +1,5 @@
 import utils from "@/utils"
+import socket from "@/socket"
 
 // initial state
 const state = {
@@ -14,18 +15,30 @@ const getters = {
 
 // actions
 const actions = {
-
+  pullItemsFromServer(context){
+    socket.requestDatabase(context.user)
+    .then(({items}) => {
+      context.commit("setItems", items);
+    })
+    .catch(error => console.error(error));
+  }
 };
 
 // mutations
 const mutations = {
 
+  setItems(state, items) {
+    state.items = items;
+  },
+
   pushItem(state, item) {
     state.items.push(item);
+    socket.pushItem(state.user, item);
   },
 
   popItem(state, id) {
     state.items = state.items.filter(item => item.id !== id);
+    socket.popItem(state.user, item);
   },
 
   updateItem(state, id, data) {
@@ -33,6 +46,7 @@ const mutations = {
     if (itemIndex < 0) return;
     Object.assign(state.items[itemIndex], data);
     // computeTime(state.items[itemIndex]);
+    socket.pushItem(state.user, item);
   },
 
 };

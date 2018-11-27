@@ -1,8 +1,6 @@
 
 const uuidv4 = require('uuid/v4');
 
-console.log("ici !! ");
-
 export default {
 
   getEmptyItem() {
