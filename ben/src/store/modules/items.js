@@ -10,7 +10,6 @@ const state = {
 const getters = {
   allItems: state => state.items,
   itemById: state => id =>  state.items.find(item => item.id === id),
-  // emptyItem: state => utils.getEmptyItem(),
 };
 
 // actions
@@ -33,7 +32,7 @@ const mutations = {
     const itemIndex = state.items.findIndex(item => item.id === id);
     if (itemIndex < 0) return;
     Object.assign(state.items[itemIndex], data);
-    computeTime(state.items[itemIndex]);
+    // computeTime(state.items[itemIndex]);
   },
 
 };

@@ -15,7 +15,7 @@ export default {
   },
 
   mounted: () => {
-    this.$http.get(url)
+    this.$http.get("")
     .then((response) => {
         if(!response.body) return;
         console.log(response.body)
@@ -32,5 +32,15 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.list-item > ul>li{
+  cursor: pointer;
+  line-height: 18px;
+  list-style: none;
+
+}
+.list-item > ul>li:hover{
+  background-color: grey;
 }
 </style>

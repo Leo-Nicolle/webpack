@@ -47,16 +47,4 @@ export default {
   .form-container{
     display: block;
   }
-
-  .list-item > ul>li{
-    cursor: pointer;
-    margin: 6px 0 6px 0;
-    line-height: 18px;
-    list-style: none;
-
-  }
-  .list-item > ul>li:hover{
-    background-color: grey;
-  }
-
 </style>
