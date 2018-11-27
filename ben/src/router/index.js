@@ -1,10 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Main from '@/components/main';
 import Item from '@/components/item';
 import ListItems from '@/components/views/list-items';
 
-import store from '@/store';
+import store from '@/store/index';
 
 import UpdateItem from '@/components/forms/update-item';
 
@@ -23,6 +22,7 @@ export default new Router({
     { path: '/item/:id/edit',
       component: UpdateItem,
       props: (route) => {
+        console.log("store", store.getters.itemById);
         const item = Object.assign({}, store.getters.itemById(route.params.id));
         return { item, mode: "update" };
       }

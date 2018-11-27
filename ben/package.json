@@ -11,6 +11,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "uuid": "^3.3.2",
     "vue": "^2.5.2",
     "vue-autosuggest": "^1.7.3",
     "vue-form-generator": "^2.3.2",

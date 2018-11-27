@@ -5,10 +5,18 @@
         <input v-model="item.name" placeholder="Entrez un nom"/>
       </p>
       <p>
-        <span>Temps</span><br/>
-        <input v-model="item.time" placeholder="Temps ? "/>
+        <span>Temps de fabrication</span><br/>
+        <input v-model="item.makingTime" placeholder="Temps ? "/>
+      </p>
+      <p>
+        <span>Temps d'utilisation</span><br/>
+        <input v-model="item.usingTime" placeholder="Temps ? "/>
       </p>
 
+      <p>
+        <span>Durée de vie</span><br/>
+        <input v-model="item.lifeTime" placeholder="Temps ? "/>
+      </p>
       <p>
         <span>Aouter un constituant</span>
         <suggestitem v-on:item-selected="addSelectedItem"
@@ -32,6 +40,9 @@
 import { mapState, mapGetters } from 'vuex';
 import Searchitem from '../fields/suggest-item';
 import AddSubItem from './add-sub-item';
+import utils from '@/utils';
+
+
 
 export default {
   name: 'CreateItem',
@@ -47,12 +58,7 @@ export default {
     },
     item: {
       type: Object,
-      default: () => ({
-        name: '',
-        time: 0,
-        id: "245",
-        subItems: [],
-      })
+      default: utils.getEmptyItem
     }
   },
 

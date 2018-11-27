@@ -2,7 +2,7 @@
     <div class = "list-item">
        <ul>
          <li v-for="item in items">
-            <p class = "item-name"> Name: {{item.name}}</p>
+            <p class = "item-name" v-on:click='onItemClick(item.id)'>{{item.name}}</p>
          </li>
        </ul>
    </div>
@@ -11,6 +11,8 @@
 <script>
 
 import { mapState, mapGetters } from 'vuex';
+import utils from '@/utils';
+
 
 export default {
   name: 'ListItems',
@@ -20,10 +22,24 @@ export default {
       default: () => [],
     },
   },
-
+  computed: {
+    ...mapGetters(['allItems', ]),
+  },
   components: {
 
   },
+
+  methods: {
+    onItemClick(id){
+      console.log("click")
+        this.$router.push(`/item/${id}/edit`);
+    },
+  },
+
+  mounted: () => {
+    console.log("ici",utils.getEmptyItem());
+  },
+
 };
 </script>
 
