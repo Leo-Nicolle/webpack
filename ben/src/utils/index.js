@@ -11,8 +11,7 @@ export default {
       usingTime: 0,
       lifeTime: 0,
       inductTime: 0,
-      subItems: [],
+      subItems: [],
     };
   },
-
 };

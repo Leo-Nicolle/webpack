@@ -1,27 +1,32 @@
-import utils from "@/utils"
-import socket from "@/socket"
+import utils from '@/utils';
 
+const axios = require('axios');
+const url = "http://localhost:5001";
 // initial state
 const state = {
   items: [utils.getEmptyItem()],
   checkoutStatus: null,
+  user: { name: 'ben', password: 'ben' },
 };
 
 // getters
 const getters = {
   allItems: state => state.items,
-  itemById: state => id =>  state.items.find(item => item.id === id),
+  itemById: state => id => state.items.find(item => item.id === id),
+  user: state => (state.user),
+
 };
 
 // actions
 const actions = {
-  pullItemsFromServer(context){
-    socket.requestDatabase(context.user)
-    .then(({items}) => {
-      context.commit("setItems", items);
-    })
-    .catch(error => console.error(error));
-  }
+  pullItemsFromServer(context) {
+    axios.get(`${url}/items`)
+      .then((response) => {
+        console.log("items", response.data.items);
+        context.commit('setItems', response.data.items);
+      })
+      .catch(error => console.error(error));
+  },
 };
 
 // mutations
@@ -33,12 +38,19 @@ const mutations = {
 
   pushItem(state, item) {
     state.items.push(item);
-    socket.pushItem(state.user, item);
+    console.log("ici", state.user)
+    axios.post(`${url}/push-item`, {
+      user: state.user,
+      item,
+    });
   },
 
   popItem(state, id) {
     state.items = state.items.filter(item => item.id !== id);
-    socket.popItem(state.user, item);
+    axios.post(`${url}/pop-item`, {
+      user: state.user,
+      id,
+    });({ name: 'ben', password: 'ben' })
   },
 
   updateItem(state, id, data) {
@@ -46,13 +58,15 @@ const mutations = {
     if (itemIndex < 0) return;
     Object.assign(state.items[itemIndex], data);
     // computeTime(state.items[itemIndex]);
-    socket.pushItem(state.user, item);
+    axios.post(`${url}/push-item`, {
+      user: state.user,
+      item: state.items[itemIndex],
+    });
   },
 
 };
 
 export default {
-  // namespaced: true,
   state,
   getters,
   actions,
